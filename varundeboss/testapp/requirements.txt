@@ -1,0 +1,16 @@
+#
+####### varundeboss/varundeboss/testapp/requirements.txt #######
+#
+
+###### Requirements without Version Specifiers ######
+#django
+
+###### Requirements with Version Specifiers ######
+#   See https://www.python.org/dev/peps/pep-0440/#version-specifiers
+#django == 1.9.5	# Version Matching. Must be version 0.6.1
+#django >= 1.9.5    # Minimum version 4.1.1
+#django != 1.9.5    # Version Exclusion. Anything except version 3.5
+#django ~= 1.9.5    # Compatible release. Same as >= 1.1, == 1.*
+
+###### Refer to other requirements files ######
+#-r requirements.txt

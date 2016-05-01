@@ -1,0 +1,24 @@
+#
+####### varundeboss/varundeboss/requirements.txt #######
+#
+
+###### Requirements without Version Specifiers ######
+django
+
+djangorestframework
+Markdown			# Markdown support for the browsable API.
+django-filter		# Filtering support.
+django-crispy-forms	# Improved HTML display for filtering.
+django-guardian		# Object level permissions support.
+drfdocs
+django-rest-swagger
+
+###### Requirements with Version Specifiers ######
+#   See https://www.python.org/dev/peps/pep-0440/#version-specifiers
+#django == 1.9.5	# Version Matching. Must be version 0.6.1
+#django >= 1.9.5    # Minimum version 4.1.1
+#django != 1.9.5    # Version Exclusion. Anything except version 3.5
+#django ~= 1.9.5    # Compatible release. Same as >= 1.1, == 1.*
+
+###### Refer to other requirements files ######
+-r testapp/requirements.txt
