@@ -30,18 +30,30 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+CUSTOM_APPS = [
+    'varundeboss',
+    'apis',
+    'apis.resume_builder',
+    'testapp',
+]
+
+THIRD_PARTY_APPS = [
+    'rest_framework',
+    'rest_framework_docs',
+    'rest_framework_swagger',
+]
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'rest_framework',
-    'rest_framework_docs',
-    'rest_framework_swagger',
-    'testapp',
+    'django.contrib.staticfiles',    
 ]
+
+INSTALLED_APPS.extend(CUSTOM_APPS)
+INSTALLED_APPS.extend(THIRD_PARTY_APPS)
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
@@ -60,7 +72,7 @@ ROOT_URLCONF = 'varundeboss.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [APP + "/templates" for APP in CUSTOM_APPS],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -81,8 +93,10 @@ WSGI_APPLICATION = 'varundeboss.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'varundeboss',
+        'USER': 'root',
+        'PASSWORD': 'root',
     }
 }
 
@@ -125,9 +139,7 @@ USE_TZ = True
 
 # STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, APP + "/static") for APP in CUSTOM_APPS]
 
 STATIC_URL = '/static/'
 

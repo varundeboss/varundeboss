@@ -16,10 +16,13 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
+from . import views
+
 urlpatterns = [
-    url(r'^admin/', admin.site.urls, name='Administrator'),
+    url(r'^admin/', admin.site.urls, name='Administrator Dashboard'),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^drf-docs/', include('rest_framework_docs.urls'), name='DRF Documentaion'),
     url(r'^swagger-docs/', include('rest_framework_swagger.urls'), name='Swagger Documentaion'),
-    url(r'^api/test/', include('testapp.urls'), name='Test Application'),
+    url(r'^api/', include('apis.urls'), name='Open APIs Application'),
+    url(r'^$', views.index, name="Home Page"),
 ]

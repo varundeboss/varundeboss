@@ -1,0 +1,11 @@
+#
+####### varundeboss/apis/requirements.txt #######
+#
+
+djangorestframework	# Django rest framework for writing APIs.
+Markdown			# Markdown support for the browsable API.
+django-filter		# Filtering support.
+django-crispy-forms	# Improved HTML display for filtering.
+django-guardian		# Object level permissions support.
+drfdocs
+django-rest-swagger
