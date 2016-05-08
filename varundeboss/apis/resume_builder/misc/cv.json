@@ -1,0 +1,1016 @@
+{
+"@context": {
+"a": "http://protege.stanford.edu/system#",
+"cv_base": "http://rdfs.org/resume-rdf/base.rdfs#",
+"cv_rdfs": "http://rdfs.org/resume-rdf/cv.rdfs#",
+"ns_1_6": "http://xmlns.com/wordnet/1.6/",
+"rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+"rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+"xsd": "http://www.w3.org/2001/XMLSchema#"
+},
+"@graph": [
+{
+"@id": "cv_rdfs:targetCompanyIndustry",
+"@type": "rdf:Property",
+"rdfs:comment": "Industry of the company where the candidate would like to work.",
+"rdfs:domain": {
+"@id": "cv_rdfs:Target"
+},
+"rdfs:label": "targetCompanyIndustry",
+"rdfs:range": {
+"@id": "rdfs:Literal"
+}
+},
+{
+"@id": "cv_rdfs:WorkHistory",
+"@type": "rdfs:Class",
+"rdfs:comment": "CV entry for work history",
+"rdfs:label": "WorkHistory",
+"rdfs:subClassOf": {
+"@id": "cv_rdfs:CV_Entry"
+}
+},
+{
+"@id": "cv_rdfs:eduGradDate",
+"@type": "rdf:Property",
+"rdfs:comment": "Education end (graducation) date (YYYY-MM-DD)\nMay contain only year or year and month.",
+"rdfs:domain": {
+"@id": "cv_rdfs:Education"
+},
+"rdfs:label": "eduGradDate",
+"rdfs:range": {
+"@id": "rdfs:Literal"
+}
+},
+{
+"@id": "cv_rdfs:gender",
+"@type": "rdf:Property",
+"rdfs:comment": "Gender property (man/woman)",
+"rdfs:domain": {
+"@id": "cv_rdfs:Person"
+},
+"rdfs:label": "gender",
+"rdfs:range": {
+"@id": "cv_base:SexProperty"
+}
+},
+{
+"@id": "cv_rdfs:cvIsActive",
+"@type": "rdf:Property",
+"rdfs:comment": "If the CV is active and the person is actively looking for job opportunities.",
+"rdfs:domain": {
+"@id": "cv_rdfs:CV"
+},
+"rdfs:label": "cvIsActive",
+"rdfs:range": {
+"@id": "rdfs:Literal"
+}
+},
+{
+"@id": "cv_rdfs:eduMajor",
+"@type": "rdf:Property",
+"rdfs:comment": "Major speciality graduated.",
+"rdfs:domain": {
+"@id": "cv_rdfs:Education"
+},
+"rdfs:label": "eduMajor",
+"rdfs:range": {
+"@id": "rdfs:Literal"
+}
+},
+{
+"@id": "cv_rdfs:hasEducation",
+"@type": "rdf:Property",
+"rdfs:domain": {
+"@id": "cv_rdfs:CV"
+},
+"rdfs:label": "hasEducation",
+"rdfs:range": {
+"@id": "cv_rdfs:Education"
+}
+},
+{
+"@id": "cv_rdfs:skillLevel",
+"@type": "rdf:Property",
+"rdfs:comment": "Level of the skill (0..5)",
+"rdfs:domain": {
+"@id": "cv_rdfs:Skill"
+},
+"rdfs:label": "skillLevel",
+"rdfs:range": {
+"@id": "rdfs:Literal"
+}
+},
+{
+"@id": "cv_rdfs:Refernece",
+"@type": "rdfs:Class",
+"rdfs:comment": "CV entry for references",
+"rdfs:label": "Refernece",
+"rdfs:subClassOf": {
+"@id": "cv_rdfs:CV_Entry"
+}
+},
+{
+"@id": "cv_rdfs:CV",
+"@type": "rdfs:Class",
+"rdfs:comment": "CV subclass of WordNet Curriculum Vitae",
+"rdfs:label": "CV",
+"rdfs:subClassOf": {
+"@id": "ns_1_6:Curriculum_Vitae"
+}
+},
+{
+"@id": "cv_rdfs:courseTitle",
+"@type": "rdf:Property",
+"rdfs:comment": "Title of the course taken or certification acquired.",
+"rdfs:domain": {
+"@id": "cv_rdfs:Course"
+},
+"rdfs:label": "courseTitle",
+"rdfs:range": {
+"@id": "rdfs:Literal"
+}
+},
+{
+"@id": "cv_rdfs:maritalStatus",
+"@type": "rdf:Property",
+"rdfs:comment": "Indicates person's marital status.",
+"rdfs:domain": {
+"@id": "cv_rdfs:Person"
+},
+"rdfs:label": "familyStatus",
+"rdfs:range": {
+"@id": "cv_base:MaritalStatus"
+}
+},
+{
+"@id": "cv_rdfs:EducationalOrg",
+"@type": "rdfs:Class",
+"rdfs:comment": "Educational organization (university, ...)",
+"rdfs:label": "EducationalOrg",
+"rdfs:subClassOf": {
+"@id": "cv_rdfs:Organization"
+}
+},
+{
+"@id": "cv_rdfs:Name",
+"@type": "rdf:Property",
+"rdfs:comment": "Name of the company",
+"rdfs:domain": {
+"@id": "cv_rdfs:Organization"
+},
+"rdfs:label": "Name",
+"rdfs:range": {
+"@id": "rdfs:Literal"
+}
+},
+{
+"@id": "cv_rdfs:targetCountry",
+"@type": "rdf:Property",
+"rdfs:comment": "Country where would like to work.\n",
+"rdfs:domain": {
+"@id": "cv_rdfs:Target"
+},
+"rdfs:label": "targetCountry",
+"rdfs:range": {
+"@id": "http://www.daml.org/2001/09/countries/countries.daml#"
+}
+},
+{
+"@id": "cv_rdfs:weeksNoticePeriod",
+"@type": "rdf:Property",
+"rdfs:comment": "Notice period in weeks when can start to work.",
+"rdfs:domain": {
+"@id": "cv_rdfs:Target"
+},
+"rdfs:label": "weeksNoticePeriod",
+"rdfs:range": {
+"@id": "rdfs:Literal"
+}
+},
+{
+"@id": "cv_rdfs:hasCitizenship",
+"@type": "rdf:Property",
+"rdfs:comment": "Person's citizenship.",
+"rdfs:domain": {
+"@id": "cv_rdfs:Person"
+},
+"rdfs:label": "hasCitizenship",
+"rdfs:range": {
+"@id": "http://www.daml.org/2001/09/countries/countries.daml#"
+}
+},
+{
+"@id": "cv_rdfs:jobDescription",
+"@type": "rdf:Property",
+"rdfs:comment": "Description of the job in company.",
+"rdfs:domain": {
+"@id": "cv_rdfs:WorkHistory"
+},
+"rdfs:label": "jobDescription",
+"rdfs:range": {
+"@id": "rdfs:Literal"
+}
+},
+{
+"@id": "cv_rdfs:isCurrent",
+"@type": "rdf:Property",
+"rdfs:comment": "Indicates if this is a current workplace.",
+"rdfs:domain": {
+"@id": "cv_rdfs:WorkHistory"
+},
+"rdfs:label": "isCurrent",
+"rdfs:range": {
+"@id": "cv_base:BooleanValue"
+}
+},
+{
+"@id": "cv_rdfs:eduMinor",
+"@type": "rdf:Property",
+"rdfs:comment": "Minor speciality(-ies) graduated.",
+"rdfs:domain": {
+"@id": "cv_rdfs:Education"
+},
+"rdfs:label": "eduMinor",
+"rdfs:range": {
+"@id": "rdfs:Literal"
+}
+},
+{
+"@id": "cv_rdfs:Skill",
+"@type": "rdfs:Class",
+"rdfs:comment": "CV entry for description of skills",
+"rdfs:label": "Skill",
+"rdfs:subClassOf": {
+"@id": "cv_rdfs:CV_Entry"
+}
+},
+{
+"@id": "cv_rdfs:degreeType",
+"@type": "rdf:Property",
+"rdfs:comment": "Type (title) of the degree.",
+"rdfs:domain": {
+"@id": "cv_rdfs:Education"
+},
+"rdfs:label": "degreeType",
+"rdfs:range": {
+"@id": "cv_base:EduDegree"
+}
+},
+{
+"@id": "cv_rdfs:jobType",
+"@type": "rdf:Property",
+"rdfs:comment": "Type of the job: employee / contractor / intern",
+"rdfs:domain": {
+"@id": "cv_rdfs:WorkHistory"
+},
+"rdfs:label": "jobType",
+"rdfs:range": {
+"@id": "cv_base:CVJobType"
+}
+},
+{
+"@id": "cv_rdfs:numSubordinates",
+"@type": "rdf:Property",
+"rdfs:comment": "Number of subordinates.",
+"rdfs:domain": {
+"@id": "cv_rdfs:WorkHistory"
+},
+"rdfs:label": "numSubordinates",
+"rdfs:range": {
+"@id": "rdfs:Literal"
+}
+},
+{
+"@id": "cv_rdfs:isCertification",
+"@type": "rdf:Property",
+"rdfs:comment": "Does this course entry include certification?",
+"rdfs:domain": {
+"@id": "cv_rdfs:Course"
+},
+"rdfs:label": "isCertification",
+"rdfs:range": {
+"@id": "cv_base:BooleanValue"
+}
+},
+{
+"@id": "cv_rdfs:studiedIn",
+"@type": "rdf:Property",
+"rdfs:comment": "Educational organization where person studied.",
+"rdfs:domain": {
+"@id": "cv_rdfs:Education"
+},
+"rdfs:label": "studiedIn",
+"rdfs:range": {
+"@id": "cv_rdfs:EducationalOrg"
+}
+},
+{
+"@id": "cv_rdfs:Person",
+"@type": "rdfs:Class",
+"rdfs:comment": "CV subclass of WordNet person",
+"rdfs:label": "Person",
+"rdfs:subClassOf": {
+"@id": "ns_1_6:Person"
+}
+},
+{
+"@id": "cv_rdfs:PersonalReference",
+"@type": "rdfs:Class",
+"rdfs:comment": "Personal reference",
+"rdfs:label": "PersonalRefernece",
+"rdfs:subClassOf": {
+"@id": "cv_rdfs:Reference"
+}
+},
+{
+"@id": "cv_rdfs:otherInfoType",
+"@type": "rdf:Property",
+"rdfs:comment": "Type of other CV information (interests / awards / accomplishments / point of view / membership / social activities / other)",
+"rdfs:domain": {
+"@id": "cv_rdfs:OtherInfo"
+},
+"rdfs:label": "otherInfoType",
+"rdfs:range": {
+"@id": "cv_base:OtherCVInfoType"
+}
+},
+{
+"@id": "cv_rdfs:birthPlace",
+"@type": "rdf:Property",
+"rdfs:comment": "Place of birth of the person.",
+"rdfs:domain": {
+"@id": "cv_rdfs:Person"
+},
+"rdfs:label": "birthPlace",
+"rdfs:range": {
+"@id": "rdfs:Literal"
+}
+},
+{
+"@id": "cv_rdfs:organizedBy",
+"@type": "rdf:Property",
+"rdfs:comment": "Organization that organized courses and/or provided certification.",
+"rdfs:domain": {
+"@id": "cv_rdfs:Course"
+},
+"rdfs:label": "organizedBy",
+"rdfs:range": {
+"@id": "cv_rdfs:Organization"
+}
+},
+{
+"@id": "cv_rdfs:courseURL",
+"@type": "rdf:Property",
+"rdfs:comment": "Web page of the courses taken / certification acquired. May be pointer to certification transcript.",
+"rdfs:domain": {
+"@id": "cv_rdfs:Course"
+},
+"rdfs:label": "courseURL",
+"rdfs:range": {
+"@id": "rdfs:Literal"
+}
+},
+{
+"@id": "cv_rdfs:skillName",
+"@type": "rdf:Property",
+"rdfs:comment": "Name of the skill",
+"rdfs:domain": {
+"@id": "cv_rdfs:Skill"
+},
+"rdfs:label": "skillName",
+"rdfs:range": {
+"@id": "rdfs:Literal"
+}
+},
+{
+"@id": "cv_rdfs:CV_Entry",
+"@type": "rdfs:Class",
+"rdfs:comment": "Single entry of CV information. Type of CV information specified in subclasses",
+"rdfs:label": "CV_Entry",
+"rdfs:subClassOf": {
+"@id": "rdfs:Resource"
+}
+},
+{
+"@id": "cv_rdfs:hasCourse",
+"@type": "rdf:Property",
+"rdfs:domain": {
+"@id": "cv_rdfs:CV"
+},
+"rdfs:label": "hasCourse",
+"rdfs:range": {
+"@id": "cv_rdfs:Course"
+}
+},
+{
+"@id": "cv_rdfs:Company",
+"@type": "rdfs:Class",
+"rdfs:comment": "A class for company information.",
+"rdfs:label": "Company",
+"rdfs:subClassOf": {
+"@id": "cv_rdfs:Organization"
+}
+},
+{
+"@id": "cv_rdfs:aboutPerson",
+"@type": "rdf:Property",
+"rdfs:domain": {
+"@id": "cv_rdfs:CV"
+},
+"rdfs:label": "aboutPerson",
+"rdfs:range": {
+"@id": "cv_rdfs:Person"
+}
+},
+{
+"@id": "cv_rdfs:cvIsConfidential",
+"@type": "rdf:Property",
+"rdfs:comment": "If the CV is confidential and may be used by receiving party only.",
+"rdfs:domain": {
+"@id": "cv_rdfs:CV"
+},
+"rdfs:label": "cvIsConfidential",
+"rdfs:range": {
+"@id": "rdfs:Literal"
+}
+},
+{
+"@id": "cv_rdfs:startDate",
+"@type": "rdf:Property",
+"rdfs:comment": "Start date of employment.\nFormat: YYYY-MM-DD\nMay containt only year or year and month.",
+"rdfs:domain": {
+"@id": "cv_rdfs:WorkHistory"
+},
+"rdfs:label": "startDate",
+"rdfs:range": {
+"@id": "rdfs:Literal"
+}
+},
+{
+"@id": "cv_rdfs:hasSkill",
+"@type": "rdf:Property",
+"rdfs:domain": {
+"@id": "cv_rdfs:CV"
+},
+"rdfs:label": "hasSkill",
+"rdfs:range": {
+"@id": "cv_rdfs:Skill"
+}
+},
+{
+"@id": "cv_rdfs:targetJobMode",
+"@type": "rdf:Property",
+"rdfs:comment": "Job mode: full-time / part-time",
+"rdfs:domain": {
+"@id": "cv_rdfs:Target"
+},
+"rdfs:label": "targetJobMode",
+"rdfs:range": {
+"@id": "cv_base:CVJobMode"
+}
+},
+{
+"@id": "cv_rdfs:targetSalary",
+"@type": "rdf:Property",
+"a:maxCardinality": "1",
+"a:range": "integer",
+"rdfs:comment": "Target salary",
+"rdfs:domain": {
+"@id": "cv_rdfs:Target"
+},
+"rdfs:label": "targetSalary",
+"rdfs:range": {
+"@id": "rdfs:Literal"
+}
+},
+{
+"@id": "cv_rdfs:courseDescription",
+"@type": "rdf:Property",
+"rdfs:comment": "Description of the course / certification.",
+"rdfs:domain": {
+"@id": "cv_rdfs:Course"
+},
+"rdfs:label": "courseDescription",
+"rdfs:range": {
+"@id": "rdfs:Literal"
+}
+},
+{
+"@id": "cv_rdfs:targetCompanyDescription",
+"@type": "rdf:Property",
+"rdfs:comment": "Description on the company where the candidate would like to work.",
+"rdfs:domain": {
+"@id": "cv_rdfs:Target"
+},
+"rdfs:label": "targetCompanyDescription",
+"rdfs:range": {
+"@id": "rdfs:Literal"
+}
+},
+{
+"@id": "cv_rdfs:targetCareerLevel",
+"@type": "rdf:Property",
+"rdfs:comment": "Target career level.",
+"rdfs:domain": {
+"@id": "cv_rdfs:Target"
+},
+"rdfs:label": "targetCareerLevel",
+"rdfs:range": {
+"@id": "cv_base:CVCareerLevel"
+}
+},
+{
+"@id": "cv_rdfs:targetJobDescription",
+"@type": "rdf:Property",
+"rdfs:comment": "Description of the job applicant is seeking. Notes.",
+"rdfs:domain": {
+"@id": "cv_rdfs:Target"
+},
+"rdfs:label": "targetJobDescription",
+"rdfs:range": {
+"@id": "rdfs:Literal"
+}
+},
+{
+"@id": "cv_rdfs:hasWorkHistory",
+"@type": "rdf:Property",
+"rdfs:domain": {
+"@id": "cv_rdfs:CV"
+},
+"rdfs:label": "hasWorkHistory",
+"rdfs:range": {
+"@id": "cv_rdfs:WorkHistory"
+}
+},
+{
+"@id": "cv_rdfs:Notes",
+"@type": "rdf:Property",
+"rdfs:comment": "Notes about the company.",
+"rdfs:domain": {
+"@id": "cv_rdfs:Organization"
+},
+"rdfs:label": "Notes",
+"rdfs:range": {
+"@id": "rdfs:Literal"
+}
+},
+{
+"@id": "cv_rdfs:jobTitle",
+"@type": "rdf:Property",
+"rdfs:comment": "Title in the company.",
+"rdfs:domain": {
+"@id": "cv_rdfs:WorkHistory"
+},
+"rdfs:label": "jobTitle",
+"rdfs:range": {
+"@id": "rdfs:Literal"
+}
+},
+{
+"@id": "cv_rdfs:lastUpdate",
+"@type": "rdf:Property",
+"rdfs:comment": "Date when the information in CV was last updated.",
+"rdfs:domain": {
+"@id": "cv_rdfs:CV"
+},
+"rdfs:label": "lastUpdate",
+"rdfs:range": {
+"@id": "rdfs:Literal"
+}
+},
+{
+"@id": "cv_rdfs:hasTarget",
+"@type": "rdf:Property",
+"rdfs:domain": {
+"@id": "cv_rdfs:CV"
+},
+"rdfs:label": "hasTarget",
+"rdfs:range": {
+"@id": "cv_rdfs:Target"
+}
+},
+{
+"@id": "cv_rdfs:ProfessionalReference",
+"@type": "rdfs:Class",
+"rdfs:comment": "Professional reference",
+"rdfs:label": "ProfessionalRefernece",
+"rdfs:subClassOf": {
+"@id": "cv_rdfs:Reference"
+}
+},
+{
+"@id": "cv_rdfs:otherInfoDescription",
+"@type": "rdf:Property",
+"rdfs:comment": "Description - content of misc CV information.",
+"rdfs:domain": {
+"@id": "cv_rdfs:OtherInfo"
+},
+"rdfs:label": "otherInfoDescription",
+"rdfs:range": {
+"@id": "rdfs:Literal"
+}
+},
+{
+"@id": "cv_rdfs:targetJobType",
+"@type": "rdf:Property",
+"rdfs:comment": "Target job type.",
+"rdfs:domain": {
+"@id": "cv_rdfs:Target"
+},
+"rdfs:label": "targetJobType",
+"rdfs:range": {
+"@id": "cv_base:CVJobType"
+}
+},
+{
+"@id": "cv_rdfs:hasReference",
+"@type": "rdf:Property",
+"rdfs:domain": {
+"@id": "cv_rdfs:CV"
+},
+"rdfs:label": "hasReference",
+"rdfs:range": {
+"@id": "cv_rdfs:Refernece"
+}
+},
+{
+"@id": "cv_rdfs:cvTitle",
+"@type": "rdf:Property",
+"rdfs:comment": "CV title.",
+"rdfs:domain": {
+"@id": "cv_rdfs:CV"
+},
+"rdfs:label": "cvTitle",
+"rdfs:range": {
+"@id": "rdfs:Literal"
+}
+},
+{
+"@id": "cv_rdfs:skillYearsExperience",
+"@type": "rdf:Property",
+"rdfs:comment": "Year of experience in this skill.",
+"rdfs:domain": {
+"@id": "cv_rdfs:Skill"
+},
+"rdfs:label": "skillYearsExperience",
+"rdfs:range": {
+"@id": "rdfs:Literal"
+}
+},
+{
+"@id": "cv_rdfs:targetCompanySize",
+"@type": "rdf:Property",
+"rdfs:comment": "Size of the target company.",
+"rdfs:domain": {
+"@id": "cv_rdfs:Target"
+},
+"rdfs:label": "targetCompanySize",
+"rdfs:range": {
+"@id": "rdfs:Literal"
+}
+},
+{
+"@id": "cv_rdfs:Locality",
+"@type": "rdf:Property",
+"rdfs:comment": "Region / state of the company.",
+"rdfs:domain": {
+"@id": "cv_rdfs:Organization"
+},
+"rdfs:label": "Locality",
+"rdfs:range": {
+"@id": "rdfs:Literal"
+}
+},
+{
+"@id": "cv_rdfs:lngSkillLevelReading",
+"@type": "rdf:Property",
+"rdfs:comment": "Reading level of language skill. (0..5)",
+"rdfs:domain": {
+"@id": "cv_rdfs:languageSkill"
+},
+"rdfs:label": "lngSkillLevelReading",
+"rdfs:range": {
+"@id": "rdfs:Literal"
+}
+},
+{
+"@id": "cv_rdfs:Country",
+"@type": "rdf:Property",
+"rdfs:comment": "Country where the company is located.",
+"rdfs:domain": {
+"@id": "cv_rdfs:Organization"
+},
+"rdfs:label": "Country",
+"rdfs:range": {
+"@id": "http://www.daml.org/2001/09/countries/countries.daml#"
+}
+},
+{
+"@id": "cv_rdfs:eduDescription",
+"@type": "rdf:Property",
+"rdfs:comment": "Description of the education info.",
+"rdfs:domain": {
+"@id": "cv_rdfs:Education"
+},
+"rdfs:label": "eduDescription",
+"rdfs:range": {
+"@id": "rdfs:Literal"
+}
+},
+{
+"@id": "cv_rdfs:Organization",
+"@type": "rdfs:Class",
+"rdfs:comment": "General class for organizations",
+"rdfs:label": "Organization",
+"rdfs:subClassOf": {
+"@id": "rdfs:Resource"
+}
+},
+{
+"@id": "cv_rdfs:cvDescription",
+"@type": "rdf:Property",
+"rdfs:comment": "Text describing what the person wants to accomplish by this CV; what is s/he looking for; ...",
+"rdfs:domain": {
+"@id": "cv_rdfs:CV"
+},
+"rdfs:label": "cvDescription",
+"rdfs:range": {
+"@id": "rdfs:Literal"
+}
+},
+{
+"@id": "cv_rdfs:Target",
+"@type": "rdfs:Class",
+"rdfs:comment": "CV information for target of job application.\n(Single entry per CV. May be defined in the properties of CV class instead).",
+"rdfs:label": "Target",
+"rdfs:subClassOf": {
+"@id": "cv_rdfs:CV_Entry"
+}
+},
+{
+"@id": "cv_rdfs:cvCopyright",
+"@type": "rdf:Property",
+"rdfs:comment": "Copyright notice - who owns rights to CV, how may it be used, other legal info.",
+"rdfs:domain": {
+"@id": "cv_rdfs:CV"
+},
+"rdfs:label": "cvCopyright",
+"rdfs:range": {
+"@id": "rdfs:Literal"
+}
+},
+{
+"@id": "cv_rdfs:endDate",
+"@type": "rdf:Property",
+"rdfs:comment": "End date of employment.\nFormat: YYYY-MM-DD\nMay containt only year or year and month.",
+"rdfs:domain": {
+"@id": "cv_rdfs:WorkHistory"
+},
+"rdfs:label": "endDate",
+"rdfs:range": {
+"@id": "rdfs:Literal"
+}
+},
+{
+"@id": "cv_rdfs:careerLevel",
+"@type": "rdf:Property",
+"rdfs:comment": "Career level for the position in company.",
+"rdfs:domain": {
+"@id": "cv_rdfs:WorkHistory"
+},
+"rdfs:label": "careerLevel",
+"rdfs:range": {
+"@id": "cv_base:CVCareerLevel"
+}
+},
+{
+"@id": "cv_rdfs:hasDriversLicense",
+"@type": "rdf:Property",
+"rdfs:comment": "Indicates if the person has drivers license (for regular cars).",
+"rdfs:domain": {
+"@id": "cv_rdfs:Person"
+},
+"rdfs:label": "hasDriversLicense",
+"rdfs:range": {
+"@id": "cv_base:BooleanValue"
+}
+},
+{
+"@id": "cv_rdfs:courseFinishDate",
+"@type": "rdf:Property",
+"rdfs:comment": "Date when course was finished / certification acquired.",
+"rdfs:domain": {
+"@id": "cv_rdfs:Course"
+},
+"rdfs:label": "courseFinishDate",
+"rdfs:range": {
+"@id": "rdfs:Literal"
+}
+},
+{
+"@id": "cv_rdfs:lngSkillLevelWritten",
+"@type": "rdf:Property",
+"rdfs:comment": "Level of writing skills for language. (0..5)",
+"rdfs:domain": {
+"@id": "cv_rdfs:languageSkill"
+},
+"rdfs:label": "lngSkillLevelWritten",
+"rdfs:range": {
+"@id": "rdfs:Literal"
+}
+},
+{
+"@id": "cv_rdfs:Education",
+"@type": "rdfs:Class",
+"rdfs:comment": "CV entry for education",
+"rdfs:label": "Education",
+"rdfs:subClassOf": {
+"@id": "cv_rdfs:CV_Entry"
+}
+},
+{
+"@id": "cv_rdfs:conditionWillRelocate",
+"@type": "rdf:Property",
+"rdfs:comment": "Is candidate willing to relocate?",
+"rdfs:domain": {
+"@id": "cv_rdfs:Target"
+},
+"rdfs:label": "conditionWillRelocate",
+"rdfs:range": {
+"@id": "cv_base:BooleanValue"
+}
+},
+{
+"@id": "cv_rdfs:employedIn",
+"@type": "rdf:Property",
+"rdfs:comment": "The company where the person is/was employed.",
+"rdfs:domain": {
+"@id": "cv_rdfs:WorkHistory"
+},
+"rdfs:label": "employedIn",
+"rdfs:range": {
+"@id": "cv_rdfs:Company"
+}
+},
+{
+"@id": "cv_rdfs:Course",
+"@type": "rdfs:Class",
+"rdfs:comment": "CV entry for courses taken",
+"rdfs:label": "Course",
+"rdfs:subClassOf": {
+"@id": "cv_rdfs:CV_Entry"
+}
+},
+{
+"@id": "cv_rdfs:targetSalaryCurrency",
+"@type": "rdf:Property",
+"a:maxCardinality": "1",
+"rdfs:comment": "Currency for target salary.",
+"rdfs:domain": {
+"@id": "cv_rdfs:Target"
+},
+"rdfs:label": "targetSalaryCurrency",
+"rdfs:range": {
+"@id": "rdfs:Literal"
+}
+},
+{
+"@id": "cv_rdfs:Industry",
+"@type": "rdf:Property",
+"rdfs:comment": "Industry of the company",
+"rdfs:domain": {
+"@id": "cv_rdfs:Company"
+},
+"rdfs:label": "Industry",
+"rdfs:range": {
+"@id": "rdfs:Literal"
+}
+},
+{
+"@id": "cv_rdfs:skillLastUsed",
+"@type": "rdf:Property",
+"rdfs:comment": "Date when skill was last used.",
+"rdfs:domain": {
+"@id": "cv_rdfs:Skill"
+},
+"rdfs:label": "skillLastUsed",
+"rdfs:range": {
+"@id": "rdfs:Literal"
+}
+},
+{
+"@id": "cv_rdfs:OtherInfo",
+"@type": "rdfs:Class",
+"rdfs:comment": "Other information in CV",
+"rdfs:label": "OtherInfo",
+"rdfs:subClassOf": {
+"@id": "cv_rdfs:CV_Entry"
+}
+},
+{
+"@id": "cv_rdfs:hasOtherInfo",
+"@type": "rdf:Property",
+"rdfs:domain": {
+"@id": "cv_rdfs:CV"
+},
+"rdfs:label": "hasOtherInfo",
+"rdfs:range": {
+"@id": "cv_rdfs:OtherInfo"
+}
+},
+{
+"@id": "cv_rdfs:URL",
+"@type": "rdf:Property",
+"rdfs:comment": "Company home page",
+"rdfs:domain": {
+"@id": "cv_rdfs:Organization"
+},
+"rdfs:label": "URL",
+"rdfs:range": {
+"@id": "rdfs:Literal"
+}
+},
+{
+"@id": "cv_rdfs:LanguageSkill",
+"@type": "rdfs:Class",
+"rdfs:comment": "Language skill.\nContains 3 levels for skill: spoken, written, reading.\nInherited skill level used for spoken.",
+"rdfs:label": "LanguageSkill",
+"rdfs:subClassOf": {
+"@id": "cv_rdfs:Skill"
+}
+},
+{
+"@id": "cv_rdfs:eduStartDate",
+"@type": "rdf:Property",
+"rdfs:comment": "Education start date (YYYY-MM-DD)\nMay contain only year or year and month.",
+"rdfs:domain": {
+"@id": "cv_rdfs:Education"
+},
+"rdfs:label": "eduStartDate",
+"rdfs:range": {
+"@id": "rdfs:Literal"
+}
+},
+{
+"@id": "cv_rdfs:conditionWillTravel",
+"@type": "rdf:Property",
+"rdfs:comment": "Is candidate willing to travel?",
+"rdfs:domain": {
+"@id": "cv_rdfs:Target"
+},
+"rdfs:label": "conditionWillTravel",
+"rdfs:range": {
+"@id": "cv_base:BooleanValue"
+}
+},
+{
+"@id": "cv_rdfs:referenceBy",
+"@type": "rdf:Property",
+"rdfs:comment": "Points to a person who provides the reference.",
+"rdfs:domain": {
+"@id": "cv_rdfs:Refernece"
+},
+"rdfs:label": "referenceBy",
+"rdfs:range": {
+"@id": "cv_rdfs:Person"
+}
+},
+{
+"@id": "cv_rdfs:courseStartDate",
+"@type": "rdf:Property",
+"rdfs:comment": "Start date of the course taken.",
+"rdfs:domain": {
+"@id": "cv_rdfs:Course"
+},
+"rdfs:label": "courseStartDate",
+"rdfs:range": {
+"@id": "rdfs:Literal"
+}
+},
+{
+"@id": "cv_rdfs:hasNationality",
+"@type": "rdf:Property",
+"rdfs:comment": "Person's nationality.",
+"rdfs:domain": {
+"@id": "cv_rdfs:Person"
+},
+"rdfs:label": "hasNationality",
+"rdfs:range": {
+"@id": "rdfs:Literal"
+}
+},
+{
+"@id": "cv_rdfs:noOfChildren",
+"@type": "rdf:Property",
+"rdfs:comment": "Number of children the person has.",
+"rdfs:domain": {
+"@id": "cv_rdfs:Person"
+},
+"rdfs:label": "noOfChildren",
+"rdfs:range": {
+"@id": "rdfs:Literal"
+}
+}
+]
+}

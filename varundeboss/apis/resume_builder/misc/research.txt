@@ -1,0 +1,23 @@
+http://theundercoverrecruiter.com/cv-vs-resume-difference-and-when-use-which/
+CV – long, covers your entire career, static
+Resume – short, no particular format rule, highly customisable
+
+Resume ontology:
+	http://rdfs.org/resume-rdf/
+	https://www.w3.org/wiki/CVSchemata
+
+RDF to JSON-LD convertor:
+	http://rdf-translator.appspot.com/convert/xml/json-ld/http://rdfs.org/resume-rdf/base.rdfs
+	http://rdf-translator.appspot.com/convert/xml/json-ld/http://rdfs.org/resume-rdf/cv.rdfs
+
+Django:
+	https://github.com/MacAlbatross/django-schemaorg-schema/blob/master/READ.md
+
+Schema.org JSON:
+	https://github.com/geraintluff/schema-org-gen
+
+JSON-LD Validator:
+	https://developers.google.com/structured-data/testing-tool/
+
+Schema.org RDF to JSON:
+	http://getschema.org/rdfaliteextractor?url=http%3A%2F%2Fschema.org%2FPerson&out=json

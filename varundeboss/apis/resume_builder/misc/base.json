@@ -1,0 +1,211 @@
+{
+"@context": {
+"cv_base": "http://rdfs.org/resume-rdf/base.rdfs#",
+"rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+"rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+"xsd": "http://www.w3.org/2001/XMLSchema#"
+},
+"@graph": [
+{
+"@id": "cv_base:Executive",
+"@type": "cv_base:CVCareerLevel",
+"rdfs:label": "Executive (SVP, EVP, VP)"
+},
+{
+"@id": "cv_base:EduCollegeCoursework",
+"@type": "cv_base:EduDegree",
+"rdfs:label": "Some college coursework completed."
+},
+{
+"@id": "cv_base:Contractor",
+"@type": "cv_base:CVJobType"
+},
+{
+"@id": "cv_base:Other",
+"@type": "cv_base:OtherCVInfoType"
+},
+{
+"@id": "cv_base:BooleanValue",
+"@type": "rdfs:Class",
+"rdfs:label": "Boolean value (true/false)"
+},
+{
+"@id": "cv_base:CVCareerLevel",
+"@type": "rdfs:Class",
+"rdfs:label": "CV career level"
+},
+{
+"@id": "cv_base:Accomplishments",
+"@type": "cv_base:OtherCVInfoType"
+},
+{
+"@id": "cv_base:EduVocational",
+"@type": "cv_base:EduDegree",
+"rdfs:label": "Vocational"
+},
+{
+"@id": "cv_base:SeniorExecutive",
+"@type": "cv_base:CVCareerLevel",
+"rdfs:label": "Senior Executive (president / CEO)"
+},
+{
+"@id": "cv_base:SocialActivities",
+"@type": "cv_base:OtherCVInfoType"
+},
+{
+"@id": "cv_base:HighSchool",
+"@type": "cv_base:CVCareerLevel",
+"rdfs:label": "Student (high school)"
+},
+{
+"@id": "cv_base:CVJobType",
+"@type": "rdfs:Class",
+"rdfs:label": "CV job type (employee/contractor/intern)"
+},
+{
+"@id": "cv_base:Part-time",
+"@type": "cv_base:CVJobMode"
+},
+{
+"@id": "cv_base:EduDegree",
+"@type": "rdfs:Class",
+"rdfs:label": "Degrees"
+},
+{
+"@id": "cv_base:Divorced",
+"@type": "cv_base:MaritalStatus"
+},
+{
+"@id": "cv_base:Publications",
+"@type": "cv_base:OtherCVInfoType"
+},
+{
+"@id": "cv_base:EduBachelor",
+"@type": "cv_base:EduDegree",
+"rdfs:label": "Bachelor's degree"
+},
+{
+"@id": "cv_base:EduHighSchool",
+"@type": "cv_base:EduDegree",
+"rdfs:label": "High school or equivalent."
+},
+{
+"@id": "cv_base:EntryLvl",
+"@type": "cv_base:CVCareerLevel",
+"rdfs:label": "Entry level (less than 2 years of experience)"
+},
+{
+"@id": "cv_base:Female",
+"@type": "cv_base:SexProperty",
+"rdfs:label": "Female"
+},
+{
+"@id": "cv_base:Membership",
+"@type": "cv_base:OtherCVInfoType"
+},
+{
+"@id": "cv_base:Widowed",
+"@type": "cv_base:MaritalStatus"
+},
+{
+"@id": "cv_base:Male",
+"@type": "cv_base:SexProperty",
+"rdfs:label": "Male"
+},
+{
+"@id": "cv_base:OtherCVInfoType",
+"@type": "rdfs:Class",
+"rdfs:label": "Type of misc information added to a CV."
+},
+{
+"@id": "cv_base:EduMaster",
+"@type": "cv_base:EduDegree",
+"rdfs:label": "Master's degree"
+},
+{
+"@id": "cv_base:Single",
+"@type": "cv_base:MaritalStatus"
+},
+{
+"@id": "cv_base:Intern",
+"@type": "cv_base:CVJobType"
+},
+{
+"@id": "cv_base:Full-time",
+"@type": "cv_base:CVJobMode"
+},
+{
+"@id": "cv_base:MaritalStatus",
+"@type": "rdfs:Class",
+"rdfs:label": "Marital Status"
+},
+{
+"@id": "cv_base:EduDoctorate",
+"@type": "cv_base:EduDegree",
+"rdfs:label": "Doctorate"
+},
+{
+"@id": "cv_base:CVJobMode",
+"@type": "rdfs:Class",
+"rdfs:label": "CV job mode (full/part - time)"
+},
+{
+"@id": "cv_base:Interests",
+"@type": "cv_base:OtherCVInfoType"
+},
+{
+"@id": "cv_base:SexProperty",
+"@type": "rdfs:Class",
+"rdfs:label": "SexProperty"
+},
+{
+"@id": "cv_base:Student",
+"@type": "cv_base:CVCareerLevel",
+"rdfs:label": "Student (graduate/undergraduate)"
+},
+{
+"@id": "cv_base:Management",
+"@type": "cv_base:CVCareerLevel",
+"rdfs:label": "Management (manager/director of staff)"
+},
+{
+"@id": "cv_base:Married",
+"@type": "cv_base:MaritalStatus"
+},
+{
+"@id": "cv_base:EduProfessional",
+"@type": "cv_base:EduDegree",
+"rdfs:label": "Professional"
+},
+{
+"@id": "cv_base:MidCareer",
+"@type": "cv_base:CVCareerLevel",
+"rdfs:label": "Mid-career (2+ years of experience)"
+},
+{
+"@id": "cv_base:EduAssociate",
+"@type": "cv_base:EduDegree",
+"rdfs:label": "Associate degree"
+},
+{
+"@id": "cv_base:Awards",
+"@type": "cv_base:OtherCVInfoType"
+},
+{
+"@id": "cv_base:PointOfView",
+"@type": "cv_base:OtherCVInfoType"
+},
+{
+"@id": "cv_base:True",
+"@type": "cv_base:BooleanValue"
+},
+{
+"@id": "cv_base:False",
+"@type": "cv_base:BooleanValue"
+},
+{
+"@id": "cv_base:Emplyee",
+"@type": "cv_base:CVJobType"
+}
+]
+}
