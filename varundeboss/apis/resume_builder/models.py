@@ -15,6 +15,11 @@ class Resume(models.Model):
 	career_field = models.CharField(max_length=100, blank=False, null=False, verbose_name="Career Field")
 	career_sub_field = models.CharField(max_length=100, blank=False, null=False, verbose_name="Career Sub-Field")
 
+	# Experience, Education, Skills, Additional Information, Community Service, <Experience Level> Summary, Objective, Keywords,
+	# "Websites, Portfolios, Profiles", Summary, Highlights, References, Accomplishments, Awards, Certifications, Clients, Dissertation,
+	# <Experience Level> Experience, Experience, Extra-Curricular Activities, Interests, Languages, Military Experience, Portfolio,
+	# Presentations, Personal Information, Publications, Technical Skills, Work History, Affliations
+
 	def __str__(self):
 		return self.name
 
