@@ -44,20 +44,21 @@ def schema_type_to_json(schema_type):
 
 	definitions = soup.findAll("table", { "class": "definition-table" })
 
-	try:
-		supertypes = definitions[0].findAll("tbody", {"class": "supertype"})
+	schema_title = soup.findAll("h1", {"class": "page-title"})[0].text.strip()
+	schema_comment = soup.findAll("div", {"property": "rdfs:comment"})[0].text.strip()
+	schema = {
+		'id': URL_PREFIX + schema_title + URL_SUFFIX,
+		'title': schema_title,
+		'description': schema_comment,
+		'format': schema_url,
+		'media': {"type": "application/json;profile=" + schema_url},
+		"properties": {},
+		'instances': {}
+	}
 
-		schema_title = soup.findAll("h1", {"class": "page-title"})[0].text.strip()
-		schema_comment = soup.findAll("div", {"property": "rdfs:comment"})[0].text.strip()
-		schema = {
-			'id': URL_PREFIX + schema_title + URL_SUFFIX,
-			'title': schema_title,
-			'description': schema_comment,
-			'format': schema_url,
-			'media': {"type": "application/json;profile=" + schema_url},
-			"properties": {},
-			'instances': {}
-		}
+	def_count = 0	
+	try:
+		supertypes = definitions[def_count].findAll("tbody", {"class": "supertype"})		
 
 		supertype_names = soup.findAll("th", {"class": "supertype-name"})
 		count = 0
@@ -82,12 +83,13 @@ def schema_type_to_json(schema_type):
 				}
 				
 				schema["properties"][supertype_url] = properties_dict
-			count += 1
+			count += 1			
+		def_count += 1 if supertypes else def_count
 	except Exception as e:
 		pass
-
+	
 	try:
-		instances = definitions[1].findAll("tr")
+		instances = definitions[def_count].findAll("tr")
 		for instance in instances[1:]:
 			instance_key = instance.find("code").a.get("href").replace("/", "")
 			instance_url = os.path.join(schema_org_url, instance_key)
