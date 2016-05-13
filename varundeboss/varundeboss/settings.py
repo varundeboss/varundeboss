@@ -32,8 +32,13 @@ ALLOWED_HOSTS = []
 
 CUSTOM_APPS = [
     'varundeboss',
+
     'apis',
     'apis.resume_builder',
+
+    'utils',
+    'utils.schema_org',
+
     'testapp',
 ]
 

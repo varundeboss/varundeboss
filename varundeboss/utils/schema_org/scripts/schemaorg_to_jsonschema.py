@@ -56,7 +56,7 @@ def schema_type_to_json(schema_type):
 		'instances': {}
 	}
 
-	def_count = 0	
+	def_count = 0
 	try:
 		supertypes = definitions[def_count].findAll("tbody", {"class": "supertype"})		
 
@@ -67,6 +67,8 @@ def schema_type_to_json(schema_type):
 			supertype_url = os.path.join(schema_org_url, supertype_name)
 			schema_json_to_file(supertype_name)
 
+			# A hack to get only the respective properties and not all.
+			supertype = BeautifulSoup(str(supertype).split('<tbody class="supertype">')[1], 'html.parser')
 			properties = supertype.findAll("tr", {"typeof": "rdfs:Property"})
 			for prop in properties:
 				properties_dict =  schema["properties"].get(supertype_url, {})
