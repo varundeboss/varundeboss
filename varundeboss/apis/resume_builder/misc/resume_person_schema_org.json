@@ -34,37 +34,144 @@
     "https://plus.google.com/100549741407542268565"
   ],
 
-  "jobTitle": "Sr. Software Engineer",
+  /*"jobTitle": "Sr. Software Engineer",*/
   "worksFor": {
     "@type": "Corporation",
     "legalName": "Crayon Data India Pvt. Ltd.",
     "url": "http://www.crayondata.com/",
-    "startDate": "2013-01-01",
-    "endDate": "2014-01-01",
-    "summary": "Description...",
-    "highlights": [
+    "event": {
+      "@type": "Event",
+      "name": "Sr. Software Engineer",
+      "location": {
+        "@type": "Place",
+        "name": "Crayon Data",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "3rd Floor, #33-B, Software Block, ELNET SOFTWARE CITY, OMR",
+          "postalCode": "600113",
+          "addressLocality": "Taramani",
+          "addressRegion": "Chennai",
+          "addressCountry": "India"  
+        }
+      },
+      "startDate": "1970-01-01",
+      "endDate": "1990-01-04"
+    },
+    "description": "Description..."
+    /*"highlights": [
       "Started the company"
-    ]
+    ]*/
   },  
+  "alumniOf": [
+    {
+      "@type": "HighSchool",
+      "legalName": "Little Flower Matric. Hr. Sec. School",
+      "department": {
+        "@type": "EducationalOrganization",
+        "name": "Biology",
+        "additionalType": "Bachelor"
+      },
+      "event": {
+        "@type": "EducationEvent",
+        "name": "LFMS",
+        "location": {
+          "@type": "Place",
+          "name": "Little Flower School",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Bharadhiyar street, Nellai Nagaram",
+            "postalCode": "627006",
+            "addressLocality": "Town",
+            "addressRegion": "Tirunelveli",
+            "addressCountry": "India"
+          }
+        },
+        "startDate": "2000-01-01",
+        "endDate": "2007-01-01",
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingCount": "0",
+          "bestRating": "10.0",
+          "ratingValue": "4.0",
+          "worstRating": "0.0"
+        }
+      }
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      "legalName": "Coimbatore Institute of Technology",
+      "department": {
+        "@type": "EducationalOrganization",
+        "name": "Information Technology",
+        "additionalType": "Bachelor"
+      },
+      "event": {
+        "@type": "EducationEvent",
+        "name": "CIT",
+        "location": {
+          "@type": "Place",
+          "name": "CIT",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Avinashi Road, Civil Aerodrome Post",
+            "postalCode": "641014",
+            "addressLocality": "Peelamedu",
+            "addressRegion": "Coimbatore",
+            "addressCountry": "India"
+          }
+        },
+        "startDate": "2007-01-01",
+        "endDate": "2011-01-01",
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingCount": "0",          
+          "bestRating": "10.0",
+          "ratingValue": "7.4",
+          "worstRating": "0.0"
+        }
+      }
+    },
+    {
+      "@type": "Corporation",
+      "legalName": "Global Analytics India Pvt. Ltd.",
+      "event": {
+        "@type": "BusinessEvent",
+        "name": "GA",
+        "location": {
+          "@type": "Place",
+          "name": "GA",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Pacifica Tech Park, 101A, First Floor, 23, Old Mahabalipuram Road",
+            "postalCode": "600020",
+            "addressLocality": "Navallur",
+            "addressRegion": "Chennai",
+            "addressCountry": "603103"
+          }
+        },
+        "startDate": "2011-05-18",
+        "endDate": "2013-09-02",
+        "workPerformed": [
+          {
+            "@type": "CreativeWork",
+            "name": "PDC",
+            "headline": "Prepaid Debit Card",
+            "description": "PDC is debit card product for Zebit"
+          }
+        ]
+      }  
+    }
+  ],
 
-  "education": [{
-    "institution": "University",
-    "area": "Software Development",
-    "studyType": "Bachelor",
-    "startDate": "2011-01-01",
-    "endDate": "2013-01-01",
-    "gpa": "4.0",
-    "courses": [
-      "DB1101 - Basic SQL"
-    ]
-  }],
-
-  "awards": [{
-    "title": "Award",
-    "date": "2014-11-01",
-    "awarder": "Company",
-    "summary": "There is no spoon."
-  }],
+  "awards": [
+    {
+      "@type": "awards",
+      "title": "Award",
+      "date": "2014-11-01",
+      "awarder": "Company",
+      "summary": "There is no spoon."
+    }
+  ],
 
   "publications": [{
     "name": "Publication",
