@@ -35,9 +35,8 @@ CUSTOM_APPS = [
 
     'apis',
     'apis.resume_builder',
-
-    'utils',
-    'utils.schema_org',
+    'apis.schema_org',
+    'apis.geonames_org'
 
     'testapp',
 ]
