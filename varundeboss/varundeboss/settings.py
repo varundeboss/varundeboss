@@ -25,7 +25,7 @@ SECRET_KEY = 'pg_hxu71ah#lb%6pl8b-7%#pzph76_@ne965deu!o#8emqu*9*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["127.0.0.1"]
 
 
 # Application definition
@@ -34,9 +34,9 @@ CUSTOM_APPS = [
     'varundeboss',
 
     'apis',
-    'apis.resume_builder',
+    'apis.jsonresume_org',
     'apis.schema_org',
-    'apis.geonames_org'
+    'apis.geonames_org',
 
     'testapp',
 ]
@@ -76,7 +76,7 @@ ROOT_URLCONF = 'varundeboss.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [APP + "/templates" for APP in CUSTOM_APPS],
+        'DIRS': [APP.replace(".", "/") + "/static/templates" for APP in CUSTOM_APPS],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -141,9 +141,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
-# STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR, APP + "/static") for APP in CUSTOM_APPS]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, APP.replace(".", "/") + "/static") for APP in CUSTOM_APPS]
 
 STATIC_URL = '/static/'
 

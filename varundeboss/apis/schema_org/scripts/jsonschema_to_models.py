@@ -28,11 +28,11 @@ class JsonschemaToModels(object):
 		}
 		self.import_tmpl = """from __future__ import unicode_literals\n\nfrom django.db import models\n\nfrom django.contrib.contenttypes.fields import GenericForeignKey\nfrom django.contrib.contenttypes.models import ContentType\n\n# Create your models here."""
 		self.model_tmpl = """\n\nclass %(schema_type)s(models.Model):\n\n"""
-		self.django_tmpl = """\t%(property)s = models.%(django_model)s(verbose_name="%(verbose_name)s")\n"""
-		self.property_tmpl = """\t%(property)s = models.ForeignKey('%(foreign_key)s', on_delete=models.CASCADE, verbose_name="%(verbose_name)s", help_text='''%(help_text)s''', related_name="%(related_name)s")\n"""
-		self.foreign_tmpl = """\t%(property)s = models.ForeignKey('%(foreign_key)s', on_delete=models.CASCADE, verbose_name="%(verbose_name)s", related_name="%(related_name)s")\n"""
+		self.django_tmpl = """\t%(property)s = models.%(django_model)s(blank=True, null=True, verbose_name="%(verbose_name)s")\n"""
+		self.property_tmpl = """\t%(property)s = models.ForeignKey('%(foreign_key)s', on_delete=models.CASCADE, verbose_name="%(verbose_name)s", blank=True, null=True, help_text='''%(help_text)s''', related_name="%(related_name)s")\n"""
+		self.foreign_tmpl = """\t%(property)s = models.ForeignKey('%(foreign_key)s', on_delete=models.CASCADE, verbose_name="%(verbose_name)s", blank=True, null=True, related_name="%(related_name)s")\n"""
 		self.generic_foreign_tmpl = """\n\tcontent_type = models.ForeignKey(ContentType)\n\tobject_id = models.PositiveIntegerField()\n\tcontent_object = GenericForeignKey('content_type', 'object_id')\n"""
-		self.str_tmpl = """\n\tdef __str__(self):\n\t\treturn self.id\n"""
+		self.str_tmpl = """\n\tdef __str__(self):\n\t\treturn str(self.id)\n"""
 		self.meta_tmpl = """\n\tclass Meta:\n\t\tverbose_name = '%(verbose_name)s'\n\t\tverbose_name_plural = '%(verbose_name_plural)s'\n"""
 
 		self.properties = self.json_schema.get("properties")
@@ -47,6 +47,7 @@ class JsonschemaToModels(object):
 			"Time": "TimeField",
 			"Integer": "IntegerField",
 			"DateTime": "DateTimeField",
+			"Float": "FloatField",
 		}
 
 		self.schema_hierarchy_list = []
@@ -112,6 +113,7 @@ class JsonschemaToModels(object):
 		return self.schema_hierarchy_list
 
 if __name__ == "__main__":
+	'''
 	import_tmpl = """from __future__ import unicode_literals\n\nfrom django.db import models\n\nfrom django.contrib.contenttypes.fields import GenericForeignKey\nfrom django.contrib.contenttypes.models import ContentType\n\n# Create your models here."""
 	schema_types = [fpath.split("/")[-1].replace(".json", "") for fpath in glob("schema.org/*.json")]
 	model_obj = open("../models.py", "w")
@@ -129,3 +131,10 @@ if __name__ == "__main__":
 		if schema_type in master_model_tmpls:
 			model_obj.write(master_model_tmpls[schema_type])
 	model_obj.close()
+	'''
+	# js2model_obj = JsonschemaToModels("Thing")
+	# schema_hierarchy_list = js2model_obj.find_schema_hierarchy()
+	schema_hierarchy_list = ['ReplyAction', 'BookmarkAction', 'Report', 'WebPage', 'WPSideBar', 'UserCheckins', 'UserPlays', 'ParentAudience', 'Brand', 'BroadcastChannel', 'RadioChannel', 'TelevisionChannel', 'BroadcastFrequencySpecification', 'BusTrip', 'Class', 'AutoDealer', 'EmploymentAgency', 'WholesaleStore', 'Crematorium', 'EventVenue', 'GovernmentBuilding', 'Courthouse']
+	for schema_type in schema_hierarchy_list:
+		from schemaorg_to_jsonschema import schema_json_to_file		
+		schema_json_to_file(schema_type, True)

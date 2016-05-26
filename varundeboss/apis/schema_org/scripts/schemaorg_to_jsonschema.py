@@ -17,9 +17,10 @@ def schema_json_to_file(schema_type, overwrite=False):
 			os.makedirs(OUTPUT_DIR)
 		file_url = os.path.join(OUTPUT_DIR, file_name)
 
-		if not os.path.exists(file_url) or overwrite:			
+		if not os.path.exists(file_url) or overwrite:
 			f_obj = open(file_url, "w")
-			schema_json = schema_type_to_json(schema_type)
+			# schema_json = schema_type_to_json(schema_type)
+			schema_json = schema_type_rdf_to_json(schema_type)
 			f_obj.write(schema_json)
 			f_obj.close()
 			# print(file_url, ": Overwrite:", overwrite, ": File Written")
@@ -30,6 +31,11 @@ def schema_json_to_file(schema_type, overwrite=False):
 		print(schema_type, ": Success")
 	except Exception as e:
 		print(schema_type, ":", e)
+
+def schema_type_rdf_to_json(schema_type):
+	# url = "http://rdf-translator.appspot.com/convert/detect/json-ld/https://schema.org/%(schema_type)s"
+	url = "http://getschema.org/rdfaliteextractor?url=http://schema.org/%(schema_type)s&out=json"
+	return json.dumps(requests.get(url%{"schema_type": schema_type}).json())
 
 def schema_type_to_json(schema_type):
 	URL_PREFIX = ""
@@ -65,7 +71,7 @@ def schema_type_to_json(schema_type):
 		for supertype in supertypes:		
 			supertype_name = supertype_names[count].a.get("href").replace("/", "")
 			supertype_url = os.path.join(schema_org_url, supertype_name)
-			schema_json_to_file(supertype_name)
+			# schema_json_to_file(supertype_name)
 
 			# A hack to get only the respective properties and not all.
 			supertype = BeautifulSoup(str(supertype).split('<tbody class="supertype">')[1], 'html.parser')
@@ -74,10 +80,10 @@ def schema_type_to_json(schema_type):
 				properties_dict =  schema["properties"].get(supertype_url, {})
 				property_key = prop.find("code", {"property":"rdfs:label"}).a.get("href").replace("/", "")
 				property_url = os.path.join(schema_org_url, property_key)
-				# schema_json_to_file(property_key)
+				# # schema_json_to_file(property_key)
 				
 				expected_types = [expected_type.nextSibling.get("href").replace("/", "") for expected_type in prop.findAll("link", {"property": "rangeIncludes"})]
-				for expected_type in expected_types:schema_json_to_file(expected_type)
+				# for expected_type in expected_types:schema_json_to_file(expected_type)
 				expected_types_url = [os.path.join(schema_org_url, expected_type) for expected_type in expected_types]
 				properties_dict[property_url] = {
 					"expected_type": expected_types_url,
@@ -95,10 +101,10 @@ def schema_type_to_json(schema_type):
 		for instance in instances[1:]:
 			instance_key = instance.find("code").a.get("href").replace("/", "")
 			instance_url = os.path.join(schema_org_url, instance_key)
-			# schema_json_to_file(instance_key)
+			# # schema_json_to_file(instance_key)
 
 			instance_used_types = [used_type.a.get("href").replace("/", "") for used_type in instance.findAll("td", {"class": "prop-ect"})]
-			for instance_used_type in instance_used_types: schema_json_to_file(instance_used_type)
+			# for instance_used_type in instance_used_types: schema_json_to_file(instance_used_type)
 			instance_used_types_url = [os.path.join(schema_org_url, instance_used_type) for instance_used_type in instance_used_types]
 			schema["instances"][instance_url] = {
 				"used_on_types": instance_used_types_url,
@@ -110,5 +116,5 @@ def schema_type_to_json(schema_type):
 	return json.dumps(schema)
 
 if __name__ == "__main__":
-	schema_json = schema_json_to_file(sys.argv[1])
-	# print schema_json
+	schema_json = schema_json_to_file(sys.argv[1], True)
+	# schema_json = schema_type_to_json(sys.argv[1])
