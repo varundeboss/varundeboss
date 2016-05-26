@@ -4,6 +4,7 @@
 
 ###### Requirements without Version Specifiers ######
 django
+mysqlclient
 
 ###### Requirements with Version Specifiers ######
 #   See https://www.python.org/dev/peps/pep-0440/#version-specifiers
@@ -16,6 +17,6 @@ django
 -r varundeboss/requirements.txt
 
 -r apis/requirements.txt
--r apis/resume_builder/requirements.txt
+-r apis/jsonresume_org/requirements.txt
 
 -r testapp/requirements.txt
