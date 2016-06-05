@@ -1,14 +1,14 @@
 from django.db import models
 
-from apis.models import Country, Continent
+from apis.schema_org.models import Continent, Country
 
 # Create your models here.
 
 class Geoname(models.Model):
 
 	name = models.CharField(max_length=100, blank=False, null=False, verbose_name="Geo Name")
-	country = models.ForeignKey(Country, verbose_name="Country")
 	continent = models.ForeignKey(Continent, verbose_name="Continent")
+	country = models.ForeignKey(Country, verbose_name="Country")	
 
 	def __str__(self):
 		return self.name

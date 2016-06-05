@@ -566,7 +566,7 @@ class Text(models.Model):
 	value = models.TextField(blank=True, null=True, verbose_name="Value", help_text='''Data type: Text.''')
 
 	def __str__(self):
-		return str(self.id)
+		return str(self.value)
 
 	class Meta:
 		verbose_name = 'Text'
@@ -3255,7 +3255,7 @@ class Landform(models.Model):
 	place = models.ForeignKey('Place', on_delete=models.CASCADE, verbose_name="Place", blank=True, null=True, help_text='''Entities that have a somewhat fixed, physical extension.''', related_name="landform_place")
 
 	def __str__(self):
-		return str(self.id)
+		return str(self.place.thing.nameText.value)
 
 	class Meta:
 		verbose_name = 'Landform'
@@ -5169,7 +5169,7 @@ class Thing(models.Model):
 	mainEntityOfPageCreativeWork = models.ForeignKey('CreativeWork', on_delete=models.CASCADE, verbose_name="Mainentityofpage", blank=True, null=True, help_text='''Indicates a page (or other CreativeWork) for which this thing is the main entity being described. See <a href="/docs/datamodel.html#mainEntityBackground">background notes</a> for details.''', related_name="thing_mainentityofpage_creativework")
 
 	def __str__(self):
-		return str(self.id)
+		return str(self.nameText.value)
 
 	class Meta:
 		verbose_name = 'Thing'
@@ -7430,7 +7430,7 @@ Use this to explicitly override general opening hours brought in scope by <a hre
 	globalLocationNumberText = models.ForeignKey('Text', on_delete=models.CASCADE, verbose_name="Globallocationnumber", blank=True, null=True, help_text='''The <a href="http://www.gs1.org/gln">Global Location Number</a> (GLN, sometimes also referred to as International Location Number or ILN) of the respective organization, person, or place. The GLN is a 13-digit number used to identify parties and physical locations.''', related_name="place_globallocationnumber_text")
 
 	def __str__(self):
-		return str(self.id)
+		return str(self.thing.nameText.value)
 
 	class Meta:
 		verbose_name = 'Place'
@@ -7770,7 +7770,7 @@ class AdministrativeArea(models.Model):
 	place = models.ForeignKey('Place', on_delete=models.CASCADE, verbose_name="Place", blank=True, null=True, help_text='''Entities that have a somewhat fixed, physical extension.''', related_name="administrativearea_place")
 
 	def __str__(self):
-		return str(self.id)
+		return str(self.place.thing.nameText.value)
 
 	class Meta:
 		verbose_name = 'AdministrativeArea'
@@ -8489,7 +8489,7 @@ class Continent(models.Model):
 	landform = models.ForeignKey('Landform', on_delete=models.CASCADE, verbose_name="Landform", blank=True, null=True, help_text='''A landform or physical feature.  Landform elements include mountains, plains, lakes, rivers, seascape and oceanic waterbody interface features such as bays, peninsulas, seas and so forth, including sub-aqueous terrain features such as submersed mountain ranges, volcanoes, and the great ocean basins.''', related_name="continent_landform")
 
 	def __str__(self):
-		return str(self.id)
+		return str(self.landform.place.thing.nameText.value)
 
 	class Meta:
 		verbose_name = 'Continent'
@@ -8733,7 +8733,7 @@ class Country(models.Model):
 	administrativeArea = models.ForeignKey('AdministrativeArea', on_delete=models.CASCADE, verbose_name="Administrativearea", blank=True, null=True, help_text='''A geographical region, typically under the jurisdiction of a particular government.''', related_name="country_administrativearea")
 
 	def __str__(self):
-		return str(self.id)
+		return str(self.administrativeArea.place.thing.nameText.value)
 
 	class Meta:
 		verbose_name = 'Country'
