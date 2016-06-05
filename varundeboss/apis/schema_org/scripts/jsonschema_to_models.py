@@ -113,7 +113,6 @@ class JsonschemaToModels(object):
 		return self.schema_hierarchy_list
 
 if __name__ == "__main__":
-	'''
 	import_tmpl = """from __future__ import unicode_literals\n\nfrom django.db import models\n\nfrom django.contrib.contenttypes.fields import GenericForeignKey\nfrom django.contrib.contenttypes.models import ContentType\n\n# Create your models here."""
 	schema_types = [fpath.split("/")[-1].replace(".json", "") for fpath in glob("schema.org/*.json")]
 	model_obj = open("../models.py", "w")
@@ -131,10 +130,10 @@ if __name__ == "__main__":
 		if schema_type in master_model_tmpls:
 			model_obj.write(master_model_tmpls[schema_type])
 	model_obj.close()
-	'''
+
 	# js2model_obj = JsonschemaToModels("Thing")
 	# schema_hierarchy_list = js2model_obj.find_schema_hierarchy()
-	schema_hierarchy_list = ['ReplyAction', 'BookmarkAction', 'Report', 'WebPage', 'WPSideBar', 'UserCheckins', 'UserPlays', 'ParentAudience', 'Brand', 'BroadcastChannel', 'RadioChannel', 'TelevisionChannel', 'BroadcastFrequencySpecification', 'BusTrip', 'Class', 'AutoDealer', 'EmploymentAgency', 'WholesaleStore', 'Crematorium', 'EventVenue', 'GovernmentBuilding', 'Courthouse']
-	for schema_type in schema_hierarchy_list:
-		from schemaorg_to_jsonschema import schema_json_to_file		
-		schema_json_to_file(schema_type, True)
+	# schema_hierarchy_list = ['ReplyAction', 'BookmarkAction', 'Report', 'WebPage', 'WPSideBar', 'UserCheckins', 'UserPlays', 'ParentAudience', 'Brand', 'BroadcastChannel', 'RadioChannel', 'TelevisionChannel', 'BroadcastFrequencySpecification', 'BusTrip', 'Class', 'AutoDealer', 'EmploymentAgency', 'WholesaleStore', 'Crematorium', 'EventVenue', 'GovernmentBuilding', 'Courthouse']
+	# for schema_type in schema_hierarchy_list:
+	# 	from schemaorg_to_jsonschema import schema_json_to_file		
+	# 	schema_json_to_file(schema_type, True)

@@ -41,9 +41,51 @@
     <!--
     <link rel="canonical" href="http://www.example.com/">
     -->
+    <style type="text/css">
+      .mdl-cell {
+        box-sizing: border-box;
+        background-color: #BDBDBD;
+        height: 200px;
+        padding-left: 8px;
+        padding-top: 4px;
+        color: white;
+      }
+      .mdl-grid:first-of-type .mdl-cell {
+        height: 50px;
+      }
+    </style>
   </head>
   <body>
-    <!-- Add your site or app content here -->
+    <!-- Add your site or app content here -->    
+    <div class="mdl-grid">
+      <div class="mdl-cell mdl-cell--1-col">1</div>
+      <div class="mdl-cell mdl-cell--1-col">1</div>
+      <div class="mdl-cell mdl-cell--1-col">1</div>
+      <div class="mdl-cell mdl-cell--1-col">1</div>
+      <div class="mdl-cell mdl-cell--1-col">1</div>
+      <div class="mdl-cell mdl-cell--1-col">1</div>
+      <div class="mdl-cell mdl-cell--1-col">1</div>
+      <div class="mdl-cell mdl-cell--1-col">1</div>
+      <div class="mdl-cell mdl-cell--1-col">1</div>
+      <div class="mdl-cell mdl-cell--1-col">1</div>
+      <div class="mdl-cell mdl-cell--1-col">1</div>
+      <div class="mdl-cell mdl-cell--1-col">1</div>
+    </div>
+    <div class="mdl-grid">
+      <div class="mdl-cell mdl-cell--4-col">4</div>
+      <div class="mdl-cell mdl-cell--4-col">4</div>
+      <div class="mdl-cell mdl-cell--4-col">4</div>
+    </div>
+    <div class="mdl-grid">
+      <div class="mdl-cell mdl-cell--6-col">6</div>
+      <div class="mdl-cell mdl-cell--4-col">4</div>
+      <div class="mdl-cell mdl-cell--2-col">2</div>
+    </div>
+    <div class="mdl-grid">
+      <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">6 (8 tablet)</div>
+      <div class="mdl-cell mdl-cell--4-col mdl-cell--6-col-tablet">4 (6 tablet)</div>
+      <div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-phone">2 (4 phone)</div>
+    </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
@@ -54,49 +96,5 @@
       ga('create', 'UA-XXXXX-X', 'auto');
       ga('send', 'pageview');
     </script>
-    <!-- Built with love using Web Starter Kit -->
-
-    <!-- Uses a transparent header that draws on top of the layout's background -->
-    <style>
-    .demo-layout-transparent {
-      background: url("{% static 'images/transparent.jpg' %}") center / cover;
-    }
-    .demo-layout-transparent .mdl-layout__header,
-    .demo-layout-transparent .mdl-layout__drawer-button {
-      /* This background is dark, so we set text to white. Use 87% black instead if
-         your background is light. */
-      color: white;
-    }
-    </style>
-
-    <div class="demo-layout-transparent mdl-layout mdl-js-layout">
-      <header class="mdl-layout__header mdl-layout__header--transparent">
-        <div class="mdl-layout__header-row">
-          <!-- Title -->
-          <span class="mdl-layout-title">Title</span>
-          <!-- Add spacer, to align navigation to the right -->
-          <div class="mdl-layout-spacer"></div>
-          <!-- Navigation -->
-          <nav class="mdl-navigation">
-            <a class="mdl-navigation__link" href="">Link</a>
-            <a class="mdl-navigation__link" href="">Link</a>
-            <a class="mdl-navigation__link" href="">Link</a>
-            <a class="mdl-navigation__link" href="">Link</a>
-          </nav>
-        </div>
-      </header>
-      <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title">Title</span>
-        <nav class="mdl-navigation">
-          <a class="mdl-navigation__link" href="">Link</a>
-          <a class="mdl-navigation__link" href="">Link</a>
-          <a class="mdl-navigation__link" href="">Link</a>
-          <a class="mdl-navigation__link" href="">Link</a>
-        </nav>
-      </div>
-      <main class="mdl-layout__content">
-      </main>
-    </div>
-
   </body>
 </html>

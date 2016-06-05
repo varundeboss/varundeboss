@@ -34,9 +34,9 @@ CUSTOM_APPS = [
     'varundeboss',
 
     'apis',
-    'apis.jsonresume_org',
     'apis.schema_org',
     'apis.geonames_org',
+    'apis.jsonresume_org',    
 
     'testapp',
 ]
