@@ -1,9 +1,15 @@
-base_dir=$(dirname "$0")
+#!/usr/bin/env bash
+
+base_dir=$PWD
+echo "PWD: "$base_dir
 app_name=$1
-python3 $base_dir/manage.py startapp $1
-mkdir -p $1/static/templates
-mkdir -p $1/static/images
-mkdir -p $1/static/css
-mkdir -p $1/static/js
-touch $1/requirements.txt
-touch $1/urls.py
+
+cd apis
+python3 $base_dir/manage.py startapp $app_name
+mkdir -p $app_name/static/templates
+mkdir -p $app_name/static/images
+mkdir -p $app_name/static/css
+mkdir -p $app_name/static/js
+touch $app_name/requirements.txt
+touch $app_name/urls.py
+cd $base_dir

@@ -34,9 +34,9 @@ CUSTOM_APPS = [
     'varundeboss',
 
     'apis',
-    'apis.schema_org',
-    'apis.geonames_org',
-    'apis.jsonresume_org',    
+    # 'apis.schema_org',
+    # 'apis.geonames_org',
+    # 'apis.jsonresume_org',
 
     'testapp',
 ]
@@ -160,5 +160,5 @@ REST_FRAMEWORK = {
 }
 
 REST_FRAMEWORK_DOCS = {
-    'HIDE_DOCS': True  # Default: False
+    'HIDE_DOCS': False    # Default: False
 }

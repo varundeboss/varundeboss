@@ -8,7 +8,7 @@ class Geoname(models.Model):
 
 	name = models.CharField(max_length=100, blank=False, null=False, verbose_name="Geo Name")
 	continent = models.ForeignKey(Continent, verbose_name="Continent")
-	country = models.ForeignKey(Country, verbose_name="Country")	
+	country = models.ForeignKey(Country, verbose_name="Country")
 
 	def __str__(self):
 		return self.name
