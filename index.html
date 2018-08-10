@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Program Neo Facebook Login</title>
+</head>
+<body>
+  <script>
+  function checkLoginState() {
+    FB.getLoginStatus(function(response) {
+      console.log(response);
+      // statusChangeCallback(response);
+      if (response.status === 'connected') {
+        console.log(response.authResponse.accessToken);
+        document.getElementById("fb_access_token").innerHTML = "Facebook Access Token: " + response.authResponse.accessToken;
+      }
+    });
+  }
+
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '187386455201066',
+      cookie     : true,
+      xfbml      : true,
+      version    : 'v3.1'
+    });
+      
+    FB.AppEvents.logPageView();
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));  
+  </script>
+
+
+  <fb:login-button 
+    scope="public_profile,email"
+    onlogin="checkLoginState();">
+  </fb:login-button>
+  <div id="fb_access_token"></div>
+</body>
+</html>
